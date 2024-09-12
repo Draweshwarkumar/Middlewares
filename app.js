@@ -11,13 +11,16 @@ const port = 8080;
 //     next();
 // });
 
-app.use("/api", (req, res, next) =>{
+const checkToken =  (req, res, next) =>{
     let {token} = req.query;
     if(token === "giveaccess"){
         next();
     }
     res.send("ACCESS DENIED!");
-})
+};
+app.get("/api", checkToken, (req,res) =>{
+    res.send("data");
+});
 
 app.use((req, res, next) =>{
     console.log("I am only for random");
@@ -35,7 +38,10 @@ app.get("/" , (req,res) =>{
 
 app.get("/random", (req,res) =>{
     res.send("This is random page");
+
 });
+
+
 
 app.use((req, res) =>{
     res.send("Page not found !!");
