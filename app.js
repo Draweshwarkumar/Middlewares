@@ -60,10 +60,6 @@ app.use((err, req, res, next) =>{
     res.status(status).send(message);
 });
 
-app.get("/test",(req,res) =>{
-    res.send("working");
-})
-
 // app.use((req, res) =>{
 //     res.status(404).send("Page not found !!");
     
