@@ -58,6 +58,10 @@ app.get("/admin", (req, res) =>{
 app.use((err, req, res, next) =>{
     let {status, message} = err;
     res.status(status).send(message);
+});
+
+app.get("/test",(req,res) =>{
+    res.send("working");
 })
 
 // app.use((req, res) =>{
